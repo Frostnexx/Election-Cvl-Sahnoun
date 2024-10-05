@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Élections du CVL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .candidat {
+            border-bottom: 1px solid #ddd;
+            padding: 10px 0;
+        }
+        .candidat:last-child {
+            border-bottom: none;
+        }
+        .candidat h2 {
+            margin: 0;
+        }
+        .candidat p {
+            margin: 5px 0;
+        }
+        .vote-button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .vote-button:hover {
+            background-color: #45a049;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Élections du CVL 2024</h1>
+        <div id="candidats">
+            <!-- Les candidats seront affichés ici via JavaScript -->
+        </div>
+        <div class="footer">
+            <p>&copy; 2024 Élections du CVL</p>
+        </div>
+    </div>
+    <script>
+        const candidats = [
+            {nom: "Alice Dupont", description: "Passionnée par l'écologie et le bien-être des élèves.", img: "alice.jpg"},
+            {nom: "Bob Martin", description: "Souhaite améliorer les infrastructures sportives du lycée.", img: "bob.jpg"},
+            {nom: "Chloé Durant", description: "Engagée pour plus d'activités culturelles et artistiques.", img: "chloe.jpg"}
+        ];
+
+        const container = document.getElementById('candidats');
+
+        candidats.forEach(candidat => {
+            const div = document.createElement('div');
+            div.classList.add('candidat');
+            div.innerHTML = `
+                <h2>${candidat.nom}</h2>
+                <p>${candidat.description}</p>
+                <img src="${candidat.img}" alt="${candidat.nom}" width="100" />
+                <button class="vote-button" onclick="voter('${candidat.nom}')">Voter pour ${candidat.nom}</button>
+            `;
+            container.appendChild(div);
+        });
+
+        function voter(nom) {
+            alert(`Merci d'avoir voté pour ${nom} !`);
+        }
+    </script>
+</body>
+</html>
+
